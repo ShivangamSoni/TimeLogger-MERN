@@ -3,9 +3,20 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 
+// React Router DOM
+import { BrowserRouter } from "react-router-dom";
+
+// Redux
+import { Provider } from "react-redux";
+import store from "./REDUX/store";
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root"),
+    <React.StrictMode>
+        <Provider store={store}>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById("root"),
 );
