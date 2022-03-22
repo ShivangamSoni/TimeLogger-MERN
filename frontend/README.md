@@ -1,11 +1,15 @@
-# React Starter Template
+# Time Logger
 
-We can create a starter React Template using:
+I've used Styled Components for Styling, Material UI for Input Components, redux, react-redux & redux-thunk for State Management and react-router for Routing.
 
-```bash
-$ npx create-react-app <app-name-location>
-```
+## Pages
 
-But the problem with above is that it comes with a lot of Broiler-Plate Code.
+-   [Home](./src/Pages/Home/index.js)
+-   [Listing](./src/Pages/Listing/index.js)
+-   [NotFound](./src/Pages/NotFound/index.js)
 
-So, this Brach Contains the Absolute Basic React Template Without most of the Broiler Plate.
+## Components
+
+-   [Header](./src/Components/Header/index.js)
+-   [Navbar](./src/Components/Navbar/index.js)
+-   [ListItem](./src/Components/ListItem/index.js)

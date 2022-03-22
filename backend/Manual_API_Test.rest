@@ -1,2 +1,12 @@
-### Logs Test
-GET http://localhost:5000/api/v1/logs/test/
+### Getting Logs
+GET http://localhost:5000/api/v1/logs/
+
+### Creating a Log
+POST http://localhost:5000/api/v1/logs/
+Content-Type: application/json
+
+{
+    "desc": "Sample",
+    "startTime": "Today",
+    "endTime": "Today"
+}

@@ -1,7 +1,7 @@
-import dotnet from "dotenv";
+import dotenv from "dotenv";
 import app from "./Express/index.js";
 
-dotnet.config();
+dotenv.config();
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, (error) => {
