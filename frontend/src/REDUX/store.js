@@ -5,32 +5,8 @@ import ReduxThunkMiddleware from "redux-thunk";
 import ACTION_TYPES from "./ActionType";
 
 const defaultState = {
-    logs: [
-        {
-            id: 1,
-            startTime: "22/03/2022 06:01 AM",
-            description: "Static Data 1",
-            endTime: "22/03/2022 06:01 AM",
-        },
-        {
-            id: 2,
-            startTime: "22/03/2022 06:01 AM",
-            description: "Static Data 2",
-            endTime: "22/03/2022 06:01 AM",
-        },
-        {
-            id: 3,
-            startTime: "22/03/2022 06:01 AM",
-            description: "Static Data 3",
-            endTime: "22/03/2022 06:01 AM",
-        },
-        {
-            id: 4,
-            startTime: "22/03/2022 06:01 AM",
-            description: "Static Data 4",
-            endTime: "22/03/2022 06:01 AM",
-        },
-    ],
+    logs: [],
+    notification: { enabled: false, content: "" },
 };
 
 const rootReducer = (state = defaultState, action) => {
@@ -38,8 +14,9 @@ const rootReducer = (state = defaultState, action) => {
 
     switch (type) {
         case ACTION_TYPES.STORE_ALL_LOGS:
-            const { logs } = payload;
-            return { ...state, logs };
+            return { ...state, logs: payload };
+        case ACTION_TYPES.SET_NOTIFICATION:
+            return { ...state, notification: payload };
         default:
             return state;
     }

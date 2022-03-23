@@ -6,7 +6,7 @@ POST http://localhost:5000/api/v1/logs/
 Content-Type: application/json
 
 {
-    "desc": "Sample",
-    "startTime": "Today",
-    "endTime": "Today"
+    "desc": "Sample API Test",
+    "startTime": "2022-03-23T04:43:41.887Z",
+    "endTime": "2022-03-23T04:43:41.887Z"
 }

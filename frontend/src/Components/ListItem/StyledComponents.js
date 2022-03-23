@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     flex-flow: column nowrap;
+    justify-content: space-between;
     row-gap: 20px;
     padding: 10px;
     border: 2px solid black;

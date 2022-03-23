@@ -1,5 +1,5 @@
 // Styled Components
-import { Container } from "./StyledComponents";
+import { Container, Info } from "./StyledComponents";
 
 import ListItem from "../../Components/ListItem";
 
@@ -7,6 +7,9 @@ import ListItem from "../../Components/ListItem";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchLogs } from "../../REDUX/ActionCreator";
+
+// Router
+import { Link } from "react-router-dom";
 
 const Listing = () => {
     const dispatch = useDispatch();
@@ -18,9 +21,13 @@ const Listing = () => {
 
     return (
         <Container>
-            {logs.map(({ id, ...item }) => (
-                <ListItem key={id} {...item} />
-            ))}
+            {logs.length > 0 ? (
+                logs.map(({ id, ...item }) => <ListItem key={id} {...item} />)
+            ) : (
+                <Info>
+                    No Time Logs Available. Add Some <Link to="/">Here</Link>.
+                </Info>
+            )}
         </Container>
     );
 };

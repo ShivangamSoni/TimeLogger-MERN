@@ -8,6 +8,7 @@ import NotFound from "./Pages/NotFound";
 
 // React Router
 import { Route, Routes, Navigate } from "react-router-dom";
+import Notification from "./Components/Notification";
 
 const App = () => {
     return (
@@ -23,6 +24,8 @@ const App = () => {
                     <Route path="/*" element={<Navigate to="/not-found" replace={true} />} />
                 </Routes>
             </main>
+
+            <Notification />
         </>
     );
 };

@@ -10,12 +10,17 @@ import MobileDateTimePicker from "@mui/lab/DateTimePicker";
 // React
 import { useState } from "react";
 
+// Redux
+import { useDispatch } from "react-redux";
+
 // Axios
-// import axios from "axios";
+import axios from "axios";
+import { showNotification, hideNotification } from "../../REDUX/ActionCreator";
 
 const Home = () => {
-    const [startTime, setStartTime] = useState("");
-    const [endTime, setEndTime] = useState("");
+    const dispatch = useDispatch();
+    const [startTime, setStartTime] = useState(null);
+    const [endTime, setEndTime] = useState(null);
     const [desc, setDesc] = useState("");
 
     const handleDescChange = (event) => setDesc(event.target.value);
@@ -23,12 +28,30 @@ const Home = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // try {
-        //     const url = "";
-        //     const data = await axios.post(url);
-        // } catch (error) {
-        //     console.error("Error", error);
-        // }
+        if (!desc || !startTime || !endTime) {
+            dispatch(showNotification("All Fields are Required"));
+            setTimeout(() => dispatch(hideNotification()), 3000);
+            return;
+        }
+
+        const log = { desc, startTime, endTime };
+
+        const { REACT_APP_BASE_URL } = process.env;
+
+        try {
+            const url = `${REACT_APP_BASE_URL}/api/v1/logs/`;
+            const { data } = await axios.post(url, log, { headers: { "Content-Type": "application/json" } });
+
+            if (data.success) {
+                setDesc("");
+                setStartTime(null);
+                setEndTime(null);
+                dispatch(showNotification("Log Added!!"));
+                setTimeout(() => dispatch(hideNotification()), 3000);
+            }
+        } catch (error) {
+            console.error("Error", error);
+        }
     };
 
     return (
@@ -41,7 +64,7 @@ const Home = () => {
                             setStartTime(newValue);
                         }}
                         label="Start Date Time"
-                        renderInput={(params) => <TextField {...params} required disabled />}
+                        renderInput={(params) => <TextField {...params} required />}
                     />
                 </LocalizationProvider>
 
@@ -54,7 +77,7 @@ const Home = () => {
                             setEndTime(newValue);
                         }}
                         label="End Date Time"
-                        renderInput={(params) => <TextField {...params} required disabled />}
+                        renderInput={(params) => <TextField {...params} required />}
                     />
                 </LocalizationProvider>
 

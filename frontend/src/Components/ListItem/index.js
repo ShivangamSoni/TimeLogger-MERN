@@ -8,11 +8,11 @@ const ListItem = ({ startTime, description, endTime }) => {
             <TimeWrapper>
                 <Time align="left">
                     <Title>Start</Title>
-                    <Value>{startTime}</Value>
+                    <Value>{new Date(startTime).toLocaleString()}</Value>
                 </Time>
                 <Time align="right">
                     <Title>End</Title>
-                    <Value>{endTime}</Value>
+                    <Value>{new Date(endTime).toLocaleString()}</Value>
                 </Time>
             </TimeWrapper>
         </Container>

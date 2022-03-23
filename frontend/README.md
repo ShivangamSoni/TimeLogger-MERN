@@ -1,4 +1,4 @@
-# Time Logger
+# Time Logger Front-End
 
 I've used Styled Components for Styling, Material UI for Input Components, redux, react-redux & redux-thunk for State Management and react-router for Routing.
 
