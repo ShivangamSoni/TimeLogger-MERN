@@ -1,24 +1,24 @@
 # Time Logger Back-End
 
-I've used Express.js for creating API's, MySQL Database & mysql2 for interacting with MySQL using node.
+I've used Express.js for creating API's, MySQL Database & **Sequelize ORM** for interacting with MySQL using node.
 
 ## Express/API Code
 
--   [Express](./Express/index.js)
--   [Log Route](./Express/Routes/Log.js)
--   [Body Required Middleware](./Express/Middleware/bodyRequired.js)
+- [Express](./Express/index.js)
+- [Log Route](./Express/Routes/Log.js)
+- [Body Required Middleware](./Express/Middleware/bodyRequired.js)
 
 ## Database
 
--   [DB Configuration & Connection](./Config/db.js)
+- [DB Configuration & Connection](./Config/db.js)
 
 ## Model
 
--   [Log Model](./Models/Log.js)
+- [Log Model](./Models/Log.js)
 
 ## Controller
 
--   [Log Controller](./Controller/Log.js)
+- [Log Controller](./Controller/Log.js)
 
 ## Using the Project:
 
@@ -32,7 +32,7 @@ $ yarn
 $ npm install
 ```
 
-Create the Database & Table in MySQL using the provided [SQL Script](./database-setup.sql)
+Create the Database. (Table will be created automatically using Sequelize)
 
 Create a **.env** file in root folder & set the following variables:
 
