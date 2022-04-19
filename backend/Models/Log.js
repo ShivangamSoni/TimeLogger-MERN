@@ -9,7 +9,7 @@ const Log = db.define("logs", {
     primaryKey: true,
   },
   description: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false,
   },
   startTime: {

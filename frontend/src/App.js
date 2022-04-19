@@ -11,23 +11,23 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Notification from "./Components/Notification";
 
 const App = () => {
-    return (
-        <>
-            <Header />
+  return (
+    <>
+      <Header />
 
-            <main>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/listing" element={<Listing />} />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/listing" element={<Listing />} />
 
-                    <Route path="/not-found" element={<NotFound />} />
-                    <Route path="/*" element={<Navigate to="/not-found" replace={true} />} />
-                </Routes>
-            </main>
+          <Route path="/not-found" element={<NotFound />} />
+          <Route path="/*" element={<Navigate to="/not-found" replace={true} />} />
+        </Routes>
+      </main>
 
-            <Notification />
-        </>
-    );
+      <Notification />
+    </>
+  );
 };
 
 export default App;

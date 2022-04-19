@@ -4,7 +4,7 @@ import { Router } from "express";
 import bodyRequired from "../Middleware/bodyRequired.js";
 
 // Controllers
-import { getAllLogs, createNewLog } from "../../Controller/Log.js";
+import { getAllLogs, createNewLog, deleteLog } from "../../Controller/Log.js";
 
 const logs = Router();
 
@@ -21,5 +21,12 @@ logs.get("/", getAllLogs);
  * @description POST/Create a Log
  */
 logs.post("/", bodyRequired, createNewLog);
+
+/**
+ * @method DELETE
+ * @listens /api/v1/logs/:id
+ * @description Delete a Log
+ */
+logs.delete("/:id", deleteLog);
 
 export default logs;

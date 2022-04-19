@@ -26,3 +26,19 @@ export const createNewLog = async (req, res) => {
     res.status(500).send({ success: false, error: "Server Error" });
   }
 };
+
+export const deleteLog = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    await Log.destroy({
+      where: {
+        id: id,
+      },
+    });
+
+    res.json({ success: true, message: "Deleted Successfully" });
+  } catch {
+    res.status(500).send({ success: false, error: "Server Error" });
+  }
+};
